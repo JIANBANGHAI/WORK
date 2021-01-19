@@ -1,0 +1,13 @@
+上个版本在ClientHandler中实现了读取浏览器发送过来的请求内容
+本版本对代码进行一个重构
+设计一个请求对象HttpRequest,保存浏览器发送过来的所有的请求，并经解析的所有的细节移动到请求
+对象中，使得ClientHandler处理与客户端的加护可读性变得更好，及结构更合理
+实现：
+1：新建一个包：com.webserver.http
+这个用来保存所有和HTTP协议有关的类·
+
+2：在http包下新建一个HttpRequest，使用这个类的每一个实例保存客户端发送过来一个请求内容
+
+3：将ClientHandler中解析请求的细节工作移动到HttpRequest中
+
+4：在ClientHandler中的run方法中通过实例化HttpRequest完成解析请求的工作

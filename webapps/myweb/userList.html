@@ -1,0 +1,67 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+    <center>
+        <h1>用户列表</h1>
+        <table border="1" bgcolor="#ff7f50">
+            <tr>
+                <td>用户名</td>
+                <td>密码</td>
+                <td>昵称</td>
+                <td>年龄</td>
+            </tr>
+            &lt;!&ndash;for(User user: context.getVariable("List"))&ndash;&gt;
+        <tr th:each="user:${List}">
+            <td th:text="${user.username}">张三</td>
+            <td th:text="${user.password}">123456</td>
+            <td th:text="${user.nickname}">阿三</td>
+            <td th:text="${user.age}">22</td>
+        </tr>
+        &lt;!&ndash;}&ndash;&gt;
+        <tr th:remove="all">
+            <td>李四</td>
+            <td>78910</td>
+            <td>阿四</td>
+            <td>25</td>
+        </tr>
+        </table>
+    </center>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+    <body>
+        <center>
+            <h1>用户列表</h1>
+            <table border ="7">
+                <tr>
+                    <td>用户名</td>
+                    <td>密码</td>
+                    <td>昵称</td>
+                    <td>年龄</td>
+                </tr>
+                <!--for(User user : context.getVar)-->
+                <tr th:each="user:${list}">
+                    <td th:text="${user.username}">1111</td>
+                    <td th:text="${user.password}">1111</td>
+                    <td th:text="${user.nickname}">1111</td>
+                    <td th:text="${user.age}">11</td>
+                </tr>
+                <tr th:remove="all">
+                    <td>李书鹏</td>
+                    <td>666</td>
+                    <td>书鹏</td>
+                    <td>21</td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>

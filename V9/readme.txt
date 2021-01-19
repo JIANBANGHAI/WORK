@@ -1,0 +1,16 @@
+本版本对响应进一步重构
+首先解决一个问题：ClientHandler每次处理请求时在设置response的响应头Content-type之前都要
+先创建一个Map保存资源后缀与对应的Cont-type的值，这是没有必要的，因为这个Map的内容是固定不变的
+因此全局一份即可，并且里面的内容都是HTTP中定义好的，是有意我们专门定义一个类来保存HTTP协议规定的
+不会变的内容，以便更好的重用它们
+实现
+1：在com.webserver.http包下新建一个类：HttpContent
+2：在HttpContent下新建一个静态方法的属性Map mineMapping用于保存所有的资源后缀名与Content-Type的值
+3：初始化这个Map并停供一个静态方法getTimeType方法可以根据后缀资源名获取Content-Type的值
+4：ClientHandler改为通过这个的MAP获取Content-Type的值并设置对应的响应头
+
+ClientHandler还有一个操作可以被重用，在处理请求环节，当我们将正文文件设置到response后总是
+还要添加两个说明正文的响应头Content-Type和Content-Length。既然这两个头和正文是密切相关的
+我们完全可以将设置这两个响应头的操作放在HttpResponse和setEntity方法中，这样一来将来字需要
+将正文文件是指好就可以了，两个头就自动被添加了
+实现：将设置Content-Type和Content-Length的工作放到HttpResponse的setEntity方法中

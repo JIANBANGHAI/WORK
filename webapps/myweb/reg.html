@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>用户注册</title>
+    </head>
+    <body>
+    <center>
+        <h1>用户注册</h1>
+        <form action="./regUser" method="get">
+            <!-- form 标签是用来提交用户在页面上输入的信息和附件的
+            只有在form表单中（form开始标签与结束标签之间的信息）的信息才会被提交！
+            form有两个重要的属性
+            action：指定表单提交的位置，这个位置通常需要服务器配合处理
+            method：指定表单的1提交方式两种：get，host
+            get：地址栏形式提交，表单的数据会被拼接到URL的抽象路径中
+            post：表单数据会被八婆韩在请求的消息正文中
+            通常表单中含义欧用户私有的信息（比如密码）时应当应用post
+            若果表单中含有附件信息，则必须使用post请求-->
+            <table border="1" bgcolor="#ff7f50">
+                <tr>
+                    <td>用户名：</td>
+                    <td><input name="username" type="text"></td>
+                </tr>
+                <tr>
+                    <td>密码：</td>
+                    <td><input name="password" type="password"></td>
+                </tr>
+                <tr>
+                    <td>昵称</td>
+                    <td><input name="nickname" type="text"></td>
+                </tr>
+                <tr>
+                    <td>年龄</td>
+                    <td><input name="age" type="text"></td>
+               </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input name="" type="submit" value="注册" >
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </center>
+    </body>
+</html>
